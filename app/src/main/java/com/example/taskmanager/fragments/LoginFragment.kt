@@ -49,7 +49,7 @@ class LoginFragment : Fragment() {
             val password=binding.passwordTxt.text.toString().trim()
 
             if(email.isNotEmpty() && password.isNotEmpty()){
-
+                binding.progressBar.visibility=View.VISIBLE
                 auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(
                     OnCompleteListener {
                         if(it.isSuccessful){
@@ -58,6 +58,7 @@ class LoginFragment : Fragment() {
                         }else{
                             Toast.makeText(context,it.exception?.message, Toast.LENGTH_SHORT).show()
                         }
+                        binding.progressBar.visibility=View.GONE
                     }
                 )
 

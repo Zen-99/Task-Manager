@@ -50,6 +50,7 @@ class signupFragment : Fragment() {
             val retypePassword=binding.rePasswordTxt.toString().trim()
 
             if(email.isNotEmpty() && password.isNotEmpty() && retypePassword.isNotEmpty()){
+                binding.progressBar.visibility=View.VISIBLE
                 if(password==retypePassword){
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(
                         OnCompleteListener {
@@ -59,6 +60,7 @@ class signupFragment : Fragment() {
                             }else{
                                 Toast.makeText(context,it.exception?.message,Toast.LENGTH_SHORT).show()
                             }
+                            binding.progressBar.visibility=View.GONE
                         }
                     )
                 }
