@@ -69,7 +69,7 @@ class AddTaskPopFragment : Fragment() {
                         map["pic"]=uri.toString()
                         firebaseFirestore.collection("images").add(map).addOnCompleteListener {firestoreTask->
                             if(firestoreTask.isSuccessful){
-
+                                println(firestoreTask.result)
                             }else{
 
                             }

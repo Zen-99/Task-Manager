@@ -13,6 +13,7 @@ import com.example.taskmanager.databinding.ActivityMainBinding
 import com.example.taskmanager.databinding.FragmentSignupBinding
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
+import android.util.Log;
 
 class signupFragment : Fragment() {
     private lateinit var auth:FirebaseAuth
@@ -45,12 +46,15 @@ class signupFragment : Fragment() {
         }
 
         binding.signUpBtn.setOnClickListener{
-            val email=binding.emailTxt.text.toString().trim()
-            val password=binding.passwordTxt.text.toString().trim()
-            val retypePassword=binding.rePasswordTxt.toString().trim()
+            val email=binding.emailTxt.text.toString()
+            val password=binding.passwordTxt.text.toString()
+            val retypePassword=binding.rePasswordTxt.text.toString()
 
             if(email.isNotEmpty() && password.isNotEmpty() && retypePassword.isNotEmpty()){
                 binding.progressBar.visibility=View.VISIBLE
+                Log.d("debug 1",email)
+                Log.d("debug 2",password)
+                Log.d("debug 3",retypePassword)
                 if(password==retypePassword){
                     auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(
                         OnCompleteListener {
