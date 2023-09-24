@@ -14,6 +14,7 @@
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
+            android:id="@+id/popUpClose"
             android:src="@drawable/baseline_close_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.968"
@@ -52,7 +53,19 @@
             app:layout_constraintStart_toStartOf="parent"
 
             >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/titleEt"
+                android:layout_width="275dp"
+                android:layout_height="52dp"
+                android:background="@color/white"
+                android:hint="Title"
+                android:paddingStart="12dp"
+                android:paddingTop="15dp"
+                tools:layout_editor_absoluteX="27dp"
+                tools:layout_editor_absoluteY="113dp"
+                tools:ignore="MissingConstraints">
 
+            </com.google.android.material.textfield.TextInputEditText>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -197,19 +210,7 @@
 
         </com.google.android.material.button.MaterialButton>
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/titleEt"
-            android:layout_width="275dp"
-            android:layout_height="52dp"
-            android:background="@color/white"
-            android:hint="Title"
-            android:paddingStart="12dp"
-            android:paddingTop="15dp"
-            tools:layout_editor_absoluteX="27dp"
-            tools:layout_editor_absoluteY="113dp"
-            tools:ignore="MissingConstraints">
 
-        </com.google.android.material.textfield.TextInputEditText>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
