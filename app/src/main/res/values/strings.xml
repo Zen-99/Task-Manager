@@ -16,5 +16,21 @@
         <item>Playing</item>
         <!-- Add more items as needed -->
     </string-array>
+    <string-array name="priorityItemsHome">
+        <item>All</item>
+        <item>Low</item>
+        <item>Medium</item>
+        <item>High</item>
+        <!-- Add more items as needed -->
+    </string-array>
+    <string-array name="categoryItemsHome">
+        <item>All</item>
+        <item>Work</item>
+        <item>Study</item>
+        <item>Meeting</item>
+        <item>Party</item>
+        <item>Playing</item>
+        <!-- Add more items as needed -->
+    </string-array>
 
 </resources>

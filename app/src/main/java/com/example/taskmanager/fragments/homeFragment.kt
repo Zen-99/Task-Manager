@@ -2,13 +2,14 @@ package com.example.taskmanager.fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +23,6 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.ktx.getValue
 
 
 class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
@@ -57,6 +57,7 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
         getDataFromFirebase()
         registerEvents()
     }
+
     private fun init(view:View){
         navController=Navigation.findNavController(view)
         auth=FirebaseAuth.getInstance()
@@ -66,7 +67,8 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
         binding.recyclerview.setHasFixedSize(true)
         binding.recyclerview.layoutManager=LinearLayoutManager(context)
         mlist= mutableListOf()
-        adapter= TaskAdapter(mlist)
+//        val spinner = binding.spinner.selectedItem.toString()
+        adapter= TaskAdapter("all",mlist)
         adapter.setListener(this)
         binding.recyclerview.adapter=adapter
     }
@@ -84,7 +86,28 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
             )
 
         }
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                Log.d("debug selected","item selected")
+                if (view != null) {
+                    changeSet()
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle nothing selected
+            }
+        }
+
     }
+
+    private fun changeSet(){
+        val spinner = binding.spinner.selectedItem.toString()
+        val spinner2 = binding.spinner2.selectedItem.toString()
+        Log.d("debug spinner",spinner)
+        getDataFromFirebaseWithCategory(spinner2,spinner)
+    }
+
 
     override fun onSaveTask(
         title: String,
@@ -148,6 +171,60 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
                         val taskData=taskSnapShot.child("date").value
 
                         Log.d("debug snapshot",taskData.toString())
+                    }
+//                    if(taskSnap!=null){
+//                       mlist.add(TaskData())
+//                    }
+                    adapter.notifyDataSetChanged()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Toast.makeText(context,error.message,Toast.LENGTH_SHORT).show()
+            }
+
+        })
+    }
+
+    private fun getDataFromFirebaseWithCategory(category:String="All",priority:String="All"){
+        databaseRef.addValueEventListener(object:ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                mlist.clear()
+                for(taskSnapShot in snapshot.children){
+                    val taskSnap=taskSnapShot.key?.let{
+                        val pushObj=pushClass(
+                            title=taskSnapShot.child("title").value.toString(),
+                            description=taskSnapShot.child("description").value.toString(),
+                            priority=taskSnapShot.child("priority").value.toString(),
+                            category=taskSnapShot.child("category").value.toString(),
+                            date=taskSnapShot.child("date").value.toString(),
+                        )
+                        if(category=="All" && priority=="All"){
+                            TaskData(it,pushObj)
+                            mlist.add(TaskData(it,pushObj))
+                        }else if(category!="All" && priority=="All"){
+                            if(category==taskSnapShot.child("category").value.toString()){
+                                TaskData(it,pushObj)
+                                mlist.add(TaskData(it,pushObj))
+                            } else {
+
+                            }
+                        }else if(category=="All" && priority!="All"){
+                            if(priority==taskSnapShot.child("priority").value.toString()){
+                                TaskData(it,pushObj)
+                                mlist.add(TaskData(it,pushObj))
+                            } else {
+
+                            }
+                        }else{
+                            if((priority==taskSnapShot.child("priority").value.toString()) && category==taskSnapShot.child("category").value.toString()){
+                                TaskData(it,pushObj)
+                                mlist.add(TaskData(it,pushObj))
+                            } else {
+
+                            }
+                        }
+
                     }
 //                    if(taskSnap!=null){
 //                       mlist.add(TaskData())

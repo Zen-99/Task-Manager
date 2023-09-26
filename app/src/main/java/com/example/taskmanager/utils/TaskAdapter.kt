@@ -4,8 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmanager.databinding.EachTaskItemBinding
+import com.example.taskmanager.databinding.FragmentHomeBinding
 
-class TaskAdapter(private val list:MutableList<TaskData>) :RecyclerView.Adapter<TaskAdapter.TaskViewHolder>(){
+class TaskAdapter(private val type:String,private val list:MutableList<TaskData>) :RecyclerView.Adapter<TaskAdapter.TaskViewHolder>(){
     private var listener:TaskAdapterClickInterface?=null
     fun setListener(listener:TaskAdapterClickInterface){
         this.listener=listener
@@ -31,11 +32,12 @@ class TaskAdapter(private val list:MutableList<TaskData>) :RecyclerView.Adapter<
                 binding.dateVal.text=this.taskObj.date
 
                 binding.deleteBtn.setOnClickListener{
-                        listener?.onDeleteTaskBtnClicked(this)
-                    }
-                    binding.editBtn.setOnClickListener{
-                        listener?.onEditTaskBtnClicked(this)
-                    }
+                    listener?.onDeleteTaskBtnClicked(this)
+                }
+                binding.editBtn.setOnClickListener{
+                    listener?.onEditTaskBtnClicked(this)
+                }
+
             }
         }
     }
