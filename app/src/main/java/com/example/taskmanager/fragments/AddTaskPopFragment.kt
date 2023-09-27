@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import com.example.taskmanager.R
 import com.example.taskmanager.databinding.FragmentAddTaskPopBinding
+import com.example.taskmanager.utils.TaskData
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
@@ -29,10 +30,27 @@ class AddTaskPopFragment : DialogFragment() {
     private lateinit var firebaseFirestore: FirebaseFirestore
     private var imageUri: Uri?=null
     private lateinit var listener: DialogSaveBtnClickListener
+    private var taskData:TaskData?=null
 
     fun setListener(listener: homeFragment){
         this.listener=listener
     }
+    companion object{
+        const val TAG="AddTaskPopFragment"
+
+        @JvmStatic
+        fun newInstance(taskId:String,title:String,description: String,priority: String,category: String,date: String)=AddTaskPopFragment().apply{
+            arguments=Bundle().apply{
+                putString("taskId",taskId)
+                putString("title",title)
+                putString("description",description)
+                putString("priority",priority)
+                putString("category",category)
+                putString("date",date)
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,6 +63,20 @@ class AddTaskPopFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initVars()
+        if(arguments!=null){
+
+//            val pushObj= homeFragment.pushClass(
+//                title = arguments?.getString("title").toString(),
+//                description = arguments?.getString("description").toString(),
+//                priority = arguments?.getString("priority").toString(),
+//                category = arguments?.getString("category").toString(),
+//                date = arguments?.getString("date").toString()
+//            )
+//            taskData= TaskData(arguments?.getString("taskId").toString(),pushObj)
+//            binding.titleEt.setText(taskData?.taskObj?.title)
+//            binding.descriptionTxt.setText(taskData?.taskObj?.description)
+//            binding.prioritySpinner.set
+        }
         registerEvents()
     }
     private fun registerEvents(){
