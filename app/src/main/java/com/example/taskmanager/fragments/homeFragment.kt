@@ -98,6 +98,18 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
                 // Handle nothing selected
             }
         }
+        binding.spinner2.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                Log.d("debug selected","item selected")
+                if (view != null) {
+                    changeSet()
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle nothing selected
+            }
+        }
 
     }
 
