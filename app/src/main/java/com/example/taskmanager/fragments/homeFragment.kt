@@ -33,7 +33,8 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
         var description: String,
         var priority: String,
         var category: String,
-        var date: String
+        var date: String,
+        var status:String
     )
 
     private lateinit var auth:FirebaseAuth
@@ -142,7 +143,8 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
             description=description,
             priority=priority,
             category=category,
-            date=date
+            date=date,
+            status="Pending"
             )
         databaseRef.push().setValue(pushObj).addOnCompleteListener {
             if(it.isSuccessful){
@@ -184,7 +186,8 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
                             description=taskSnapShot.child("description").value.toString(),
                             priority=taskSnapShot.child("priority").value.toString(),
                             category=taskSnapShot.child("category").value.toString(),
-                            date=taskSnapShot.child("date").value.toString()
+                            date=taskSnapShot.child("date").value.toString(),
+                            status=taskSnapShot.child("status").value.toString()
                         )
                         TaskData(it,pushObj)
                         mlist.add(TaskData(it,pushObj))
@@ -218,6 +221,7 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
                             priority=taskSnapShot.child("priority").value.toString(),
                             category=taskSnapShot.child("category").value.toString(),
                             date=taskSnapShot.child("date").value.toString(),
+                            status=taskSnapShot.child("status").value.toString()
                         )
                         if(category=="All" && priority=="All"){
                             TaskData(it,pushObj)
