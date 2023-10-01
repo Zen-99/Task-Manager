@@ -14,7 +14,7 @@
 
         <TextView
             android:id="@+id/titleVal"
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/dmsans_bold"
             android:text="Upload slides"
@@ -26,7 +26,7 @@
 
         <TextView
             android:id="@+id/descriptionVal"
-            android:layout_width="270dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:fontFamily="@font/dmsans_medium"
@@ -45,36 +45,51 @@
             app:layout_constraintTop_toBottomOf="@id/descriptionVal">
 
             <TextView
-                android:id="@+id/categoryVal"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/dmsans_semibold"
-                android:text="Meeting"
-                android:textAlignment="center"
-                android:textSize="13sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/descriptionVal"
-                tools:ignore="MissingConstraints" />
-
-            <TextView
                 android:id="@+id/priortyVal"
-                android:layout_width="111dp"
+                android:layout_width="80dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="1dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:fontFamily="@font/dmsans_semibold"
                 android:text="Priority"
-                android:textAlignment="center"
                 android:textSize="13sp"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                android:gravity="center"
+                android:textColor="@color/sub_white"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/categoryVal"
+                android:layout_width="100dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="1dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dmsans_semibold"
+                android:textColor="@color/sub_gray"
+                android:text="Meeting"
+                android:textSize="13sp"
+                android:gravity="center"
+                android:background="@drawable/default_priority_background"/>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
             <TextView
                 android:id="@+id/dateVal"
-                android:layout_width="108dp"
+                android:layout_width="wrap_content"
+                android:minWidth="80dp"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="1dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
                 android:fontFamily="@font/dmsans_semibold"
-                android:textAlignment="center"
                 android:textSize="13sp"
+                android:gravity="center"
                 app:layout_constraintEnd_toEndOf="parent" />
 
         </LinearLayout>
