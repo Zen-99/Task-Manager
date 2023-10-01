@@ -16,4 +16,10 @@
     <color name="light_blue">#FFEFFCFF</color>
     <color name="main_blue">#FF39C5F0</color>
 
+    <!--status-->
+    <color name="status_red">#FFF55C33</color>
+    <color name="status_yellow">#FFF5A921</color>
+    <color name="status_blue">#FF0AA5FF</color>
+    <color name="status_default">#FF91B9FE</color>
+
 </resources>
