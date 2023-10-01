@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="377dp"
+        android:layout_height="227dp"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:id="@+id/titleVal"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Upload slides"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:fontFamily="@font/montserrat_bold"
+            app:flow_horizontalAlign="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/descriptionVal"
+            android:layout_width="271dp"
+            android:layout_height="68dp"
+            android:layout_marginTop="8dp"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/montserrat_regular"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleVal" />
+
+        <TextView
+            android:id="@+id/categoryVal"
+            android:layout_width="100dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Meeting"
+            android:fontFamily="@font/montserrat_semibold"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionVal"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/priortyVal"
+            android:layout_width="111dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="Priority"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/categoryVal"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionVal"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/dateVal"
+            android:layout_width="108dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/montserrat_semibold"
+            android:text="03-08-2023"
+            android:textAlignment="center"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/priortyVal"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionVal" />
+
+        <TextView
+            android:id="@+id/imageTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="16dp"
+            android:text="Image : "
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/priortyVal"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/imageVal"
+            android:layout_width="79dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintStart_toEndOf="@+id/imageTxt"
+            app:layout_constraintTop_toBottomOf="@+id/priortyVal" />
+
+        <ImageView
+            android:id="@+id/deleteBtn"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_delete_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="93dp" />
+
+        <ImageView
+            android:id="@+id/editBtn"
+            android:layout_width="48dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/baseline_edit_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="57dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
