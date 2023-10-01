@@ -10,4 +10,10 @@
     <color name="text_color">#21108A</color>
     <color name="secondary_color">#D5CEFF</color>
 
+    <color name="sub_black">#FF222429</color>
+    <color name="sub_gray">#FF666666</color>
+    <color name="sub_white">#FFF9F9F9</color>
+    <color name="light_blue">#FFEFFCFF</color>
+    <color name="main_blue">#FF39C5F0</color>
+
 </resources>

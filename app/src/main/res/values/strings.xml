@@ -1,7 +1,19 @@
 <resources>
-    <string name="app_name">TaskManager</string>
+    <string name="app_name">Just Do It</string>
+    <string name="app_sub_title">Your work buddy</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="priority">Priority</string>
+    <string name="category">Category</string>
+    <string name="titleText">Title</string>
+    <string name="descriptionText">Description</string>
+    <string name="dueDateText">Due Date</string>
+    <string name="imgUploadText">Upload Image</string>
+    <string name="completeText">Complete</string>
+    <string name="completedText">Completed</string>
+    <string name="editText">Edit</string>
+    <string name="deleteText">Delete</string>
+
     <string-array name="priorityItems">
         <item>Low</item>
         <item>Medium</item>
@@ -14,6 +26,12 @@
         <item>Meeting</item>
         <item>Party</item>
         <item>Playing</item>
+        <!-- Add more items as needed -->
+    </string-array>
+    <string-array name="completedItemsHome">
+        <item>All</item>
+        <item>Pending</item>
+        <item>Completed</item>
         <!-- Add more items as needed -->
     </string-array>
     <string-array name="priorityItemsHome">

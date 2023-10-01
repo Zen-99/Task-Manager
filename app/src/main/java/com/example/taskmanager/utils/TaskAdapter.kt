@@ -34,8 +34,8 @@ class TaskAdapter(private val type:String,private val list:MutableList<TaskData>
                 binding.deleteBtn.setOnClickListener{
                     listener?.onDeleteTaskBtnClicked(this)
                 }
-                binding.editBtn.setOnClickListener{
-                    listener?.onEditTaskBtnClicked(this)
+                binding.completeBtn.setOnClickListener{
+                    listener?.onCompleteTaskBtnClicked(this)
                 }
 
             }
@@ -44,6 +44,7 @@ class TaskAdapter(private val type:String,private val list:MutableList<TaskData>
     interface TaskAdapterClickInterface{
         fun onDeleteTaskBtnClicked(taskData:TaskData)
         fun onEditTaskBtnClicked(taskData: TaskData)
+        fun onCompleteTaskBtnClicked(taskData: TaskData)
 
     }
 }

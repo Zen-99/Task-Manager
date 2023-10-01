@@ -33,7 +33,7 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
         var description: String,
         var priority: String,
         var category: String,
-        var date:String,
+        var date: String
     )
 
     private lateinit var auth:FirebaseAuth
@@ -165,6 +165,10 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
         }
     }
 
+    override fun onCompleteTaskBtnClicked(taskData: TaskData) {
+
+    }
+
     override fun onEditTaskBtnClicked(taskData: TaskData) {
         TODO("Not yet implemented")
     }
@@ -180,7 +184,7 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
                             description=taskSnapShot.child("description").value.toString(),
                             priority=taskSnapShot.child("priority").value.toString(),
                             category=taskSnapShot.child("category").value.toString(),
-                            date=taskSnapShot.child("date").value.toString(),
+                            date=taskSnapShot.child("date").value.toString()
                         )
                         TaskData(it,pushObj)
                         mlist.add(TaskData(it,pushObj))

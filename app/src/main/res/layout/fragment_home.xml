@@ -6,97 +6,178 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.homeFragment">
 
-    <ImageView
-        android:id="@+id/addBtn"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:src="@drawable/baseline_add_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.671"
-        app:layout_constraintStart_toStartOf="parent"
+    <LinearLayout
+        android:id="@+id/topContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sub_black"
+        android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
-
-    <ImageView
-        android:id="@+id/faqBtn"
-        android:layout_width="52dp"
-        android:layout_height="52dp"
-        android:src="@drawable/baseline_question_answer_24"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.363"
-        app:layout_constraintStart_toEndOf="@+id/addBtn"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
+        app:layout_constraintVertical_bias="0.0"
+        >
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerview"
-        android:layout_width="408dp"
-        android:layout_height="437dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.625"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="2dp" />
+        <!-- Top Bar -->
+        <LinearLayout
+            android:id="@+id/topBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp"
+            android:gravity="center_vertical">
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
-        android:layout_width="160dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toStartOf="@+id/addBtn"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/appLogo"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:src="@drawable/app_icon"
+                android:contentDescription="app_logo" />
 
+            <TextView
+                android:id="@+id/appTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textSize="24sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/montserrat_bold"
+                android:layout_marginStart="16dp" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="118dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="20dp"
-        android:text="Priority"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
-        app:layout_constraintEnd_toStartOf="@+id/spinner"
-        app:layout_constraintHorizontal_bias="0.327"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.071" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="129dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="28dp"
-        android:entries="@array/categoryItemsHome"
-        app:layout_constraintStart_toEndOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/spinner"
-        tools:ignore="MissingConstraints" />
+            <ImageView
+                android:id="@+id/addBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/plus"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.671"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="121dp"
-        android:layout_height="37dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="28dp"
-        android:text="Category"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        tools:ignore="MissingConstraints" />
+            <ImageView
+                android:id="@+id/faqBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/faq"
+                android:layout_marginStart="16dp"/>
+        </LinearLayout>
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="128dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="24dp"
-        android:entries="@array/priorityItemsHome"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.837"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addBtn"
-        tools:ignore="MissingConstraints" />
+        <!-- Search Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="15dp"
+            android:paddingVertical="10dp">
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Search"
+                android:text="Search"
+                app:theme="@style/WhiteSearchViewStyle"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Filter Row -->
+    <LinearLayout
+        android:id="@+id/filter_section"
+        app:layout_constraintTop_toBottomOf="@id/topContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingHorizontal="10sp"
+            android:paddingVertical="10sp">
+            <TextView
+                android:id="@+id/textView2"
+                android:text="@string/priority"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/InputLabel"/>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dmsans_bold"
+                android:entries="@array/priorityItemsHome" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingHorizontal="10sp"
+            android:paddingVertical="10sp">
+            <TextView
+                android:id="@+id/textView3"
+                android:text="@string/category"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/InputLabel"/>
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dmsans_bold"
+                android:entries="@array/categoryItemsHome"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:paddingHorizontal="10sp"
+            android:paddingVertical="10sp">
+            <TextView
+                android:id="@+id/textView4"
+                android:text="@string/completedText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/InputLabel"/>
+
+            <Spinner
+                android:id="@+id/spinner3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dmsans_bold"
+                android:entries="@array/completedItemsHome"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintTop_toBottomOf="@id/filter_section"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

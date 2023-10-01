@@ -7,173 +7,128 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="377dp"
-        android:layout_height="400dp"
-        android:paddingLeft="20dp">
-
-        <TextView
-            android:id="@+id/titleTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:text="Title : "
-            android:textColor="@color/black"
-            android:textSize="20sp"
-            app:flow_horizontalAlign="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.08"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="8dp">
 
         <TextView
             android:id="@+id/titleVal"
-            android:layout_width="161dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="40dp"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dmsans_bold"
+            android:text="Upload slides"
             android:textColor="@color/black"
-            android:textSize="20sp"
+            android:textSize="18sp"
             app:flow_horizontalAlign="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.551"
-            app:layout_constraintStart_toEndOf="@+id/titleTxt"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/descriptionTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Description : "
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/titleTxt"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="27dp" />
-
-        <TextView
             android:id="@+id/descriptionVal"
-            android:layout_width="176dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="44dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toEndOf="@+id/descriptionTxt"
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/dmsans_medium"
+            android:maxHeight="50dp"
+            android:text="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titleVal" />
 
-        <TextView
-            android:id="@+id/dateTxt"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/tags"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
-            android:text="Deadline : "
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionTxt"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="27dp" />
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/descriptionVal">
 
-        <TextView
-            android:id="@+id/dateVal"
-            android:layout_width="108dp"
-            android:layout_height="26dp"
-            android:layout_marginTop="24dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.234"
-            app:layout_constraintStart_toEndOf="@+id/dateTxt"
-            app:layout_constraintTop_toBottomOf="@+id/descriptionVal" />
+            <TextView
+                android:id="@+id/categoryVal"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dmsans_semibold"
+                android:text="Meeting"
+                android:textAlignment="center"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/descriptionVal"
+                tools:ignore="MissingConstraints" />
 
-        <TextView
-            android:id="@+id/categoryTxt"
-            android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/priortyVal"
+                android:layout_width="111dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/dmsans_semibold"
+                android:text="Priority"
+                android:textAlignment="center"
+                android:textSize="13sp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/dateVal"
+                android:layout_width="108dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:fontFamily="@font/dmsans_semibold"
+                android:textAlignment="center"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Category : "
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/dateTxt"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="26dp" />
+            android:layout_marginTop="5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/tags">
+            >
 
-        <TextView
-            android:id="@+id/categoryVal"
-            android:layout_width="106dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.025"
-            app:layout_constraintStart_toEndOf="@+id/categoryTxt"
-            app:layout_constraintTop_toBottomOf="@+id/dateVal"
-            tools:ignore="MissingConstraints" />
+            <TextView
+                android:id="@+id/imageTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/dmsans_semibold"
+                android:text="Image : "
+                android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/priorityTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Priority : "
-            android:textSize="20sp"
-            app:layout_constraintTop_toBottomOf="@+id/categoryTxt"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="26dp" />
+            <TextView
+                android:id="@+id/imageVal"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_weight="1"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.12"
+                app:layout_constraintStart_toEndOf="@+id/imageTxt"
+                app:layout_constraintTop_toBottomOf="@+id/priortyVal" />
 
-        <TextView
-            android:id="@+id/priortyVal"
-            android:layout_width="111dp"
-            android:layout_height="27dp"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.327"
-            app:layout_constraintStart_toEndOf="@+id/priorityTxt"
-            app:layout_constraintTop_toBottomOf="@+id/categoryVal"
-            tools:ignore="MissingConstraints" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="2" />
 
-        <TextView
-            android:id="@+id/imageTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="16dp"
-            android:text="Image : "
-            android:textSize="20sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/priorityTxt"
-            tools:ignore="MissingConstraints" />
+            <ImageView
+                android:id="@+id/completeBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginHorizontal="5dp"
+                android:src="@drawable/checked" />
 
-        <TextView
-            android:id="@+id/imageVal"
-            android:layout_width="79dp"
-            android:layout_height="25dp"
-            android:layout_marginTop="20dp"
-            android:textSize="20sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.285"
-            app:layout_constraintStart_toEndOf="@+id/imageTxt"
-            app:layout_constraintTop_toBottomOf="@+id/priortyVal" />
+            <ImageView
+                android:id="@+id/deleteBtn"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_marginHorizontal="5dp"
+                android:src="@drawable/delete" />
 
-        <ImageView
-            android:id="@+id/deleteBtn"
-            android:layout_width="48dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="12dp"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/baseline_delete_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints" />
 
-        <ImageView
-            android:id="@+id/editBtn"
-            android:layout_width="48dp"
-            android:layout_height="32dp"
-            android:layout_marginEnd="68dp"
-            android:layout_marginBottom="24dp"
-            android:src="@drawable/baseline_edit_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            tools:ignore="MissingConstraints" />
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </com.google.android.material.card.MaterialCardView>
