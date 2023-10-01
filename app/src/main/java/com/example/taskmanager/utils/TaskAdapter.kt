@@ -3,6 +3,7 @@ package com.example.taskmanager.utils
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.taskmanager.R
 import com.example.taskmanager.databinding.EachTaskItemBinding
 import com.example.taskmanager.databinding.FragmentHomeBinding
 
@@ -30,6 +31,14 @@ class TaskAdapter(private val type:String,private val list:MutableList<TaskData>
                 binding.priortyVal.text=this.taskObj.priority
                 binding.descriptionVal.text=this.taskObj.description
                 binding.dateVal.text=this.taskObj.date
+
+                // Set the background color based on the priority value
+                when (this.taskObj.priority) {
+                    "High" -> binding.priortyVal.setBackgroundResource(R.drawable.high_priority_background)
+                    "Medium" -> binding.priortyVal.setBackgroundResource(R.drawable.medium_priority_background)
+                    "Low" -> binding.priortyVal.setBackgroundResource(R.drawable.low_priority_background)
+                    else -> binding.priortyVal.setBackgroundResource(R.drawable.default_priority_background)
+                }
 
                 binding.deleteBtn.setOnClickListener{
                     listener?.onDeleteTaskBtnClicked(this)

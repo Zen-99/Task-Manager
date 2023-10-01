@@ -164,10 +164,13 @@ class AddTaskPopFragment : DialogFragment() {
 
 
     private fun updateLable(myCalendar: Calendar){
-        Log.d("debug 3","Upload Label called")
-        val myFormat="dd-mm-yyyy"
-        val sdf=SimpleDateFormat(myFormat, Locale.ENGLISH)
-        binding.tvDate.setText(sdf.format(myCalendar.time))
+        Log.d("debug 3", "Update Label called")
+
+        // Formatting date
+        val dateFormat = "dd MMM yyyy"
+        val sdf = SimpleDateFormat(dateFormat, Locale.ENGLISH)
+
+        binding.tvDate.text = sdf.format(myCalendar.time)
     }
 
     interface DialogSaveBtnClickListener{
