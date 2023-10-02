@@ -112,17 +112,31 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
                 // Handle nothing selected
             }
         }
+        binding.spinner3.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                Log.d("debug selected","item selected")
+                if (view != null) {
+                    changeSet()
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                // Handle nothing selected
+            }
+        }
         binding.faqBtn.setOnClickListener {
             navController.navigate(R.id.action_homeFragment_to_faqFragment)
         }
+
 
     }
 
     private fun changeSet(){
         val spinner = binding.spinner.selectedItem.toString()
         val spinner2 = binding.spinner2.selectedItem.toString()
+        val spinner3 = binding.spinner3.selectedItem.toString()
         Log.d("debug spinner",spinner)
-        getDataFromFirebaseWithCategory(spinner2,spinner)
+        getDataFromFirebaseWithCategory(spinner2,spinner,spinner3)
     }
 
 
@@ -168,7 +182,17 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
     }
 
     override fun onCompleteTaskBtnClicked(taskData: TaskData) {
-
+        val updates: MutableMap<String, Any> = HashMap()
+        val taskString="${taskData.taskId}/status"
+        updates[taskString] = "Completed"
+        databaseRef.updateChildren(updates)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    Toast.makeText(context, "Successfully updated", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(context, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                }
+            }
     }
 
     override fun onEditTaskBtnClicked(taskData: TaskData) {
@@ -209,7 +233,7 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
         })
     }
 
-    private fun getDataFromFirebaseWithCategory(category:String="All",priority:String="All"){
+    private fun getDataFromFirebaseWithCategory(category:String="All",priority:String="All",status:String="All"){
         databaseRef.addValueEventListener(object:ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 mlist.clear()
@@ -224,26 +248,55 @@ class homeFragment : Fragment(), AddTaskPopFragment.DialogSaveBtnClickListener,
                             status=taskSnapShot.child("status").value.toString()
                         )
                         if(category=="All" && priority=="All"){
-                            TaskData(it,pushObj)
-                            mlist.add(TaskData(it,pushObj))
-                        }else if(category!="All" && priority=="All"){
-                            if(category==taskSnapShot.child("category").value.toString()){
+                            if(status=="All"){
                                 TaskData(it,pushObj)
                                 mlist.add(TaskData(it,pushObj))
+                            }else if(status==taskSnapShot.child("status").value.toString()){
+                                TaskData(it,pushObj)
+                                mlist.add(TaskData(it,pushObj))
+                            }else{
+
+                            }
+
+                        }else if(category!="All" && priority=="All"){
+                            if(category==taskSnapShot.child("category").value.toString()){
+                                if(status=="All"){
+                                    TaskData(it,pushObj)
+                                    mlist.add(TaskData(it,pushObj))
+                                }else if(status==taskSnapShot.child("status").value.toString()){
+                                    TaskData(it,pushObj)
+                                    mlist.add(TaskData(it,pushObj))
+                                }else{
+
+                                }
                             } else {
 
                             }
                         }else if(category=="All" && priority!="All"){
                             if(priority==taskSnapShot.child("priority").value.toString()){
-                                TaskData(it,pushObj)
-                                mlist.add(TaskData(it,pushObj))
+                                if(status=="All"){
+                                    TaskData(it,pushObj)
+                                    mlist.add(TaskData(it,pushObj))
+                                }else if(status==taskSnapShot.child("status").value.toString()){
+                                    TaskData(it,pushObj)
+                                    mlist.add(TaskData(it,pushObj))
+                                }else{
+
+                                }
                             } else {
 
                             }
                         }else{
                             if((priority==taskSnapShot.child("priority").value.toString()) && category==taskSnapShot.child("category").value.toString()){
-                                TaskData(it,pushObj)
-                                mlist.add(TaskData(it,pushObj))
+                                if(status=="All"){
+                                    TaskData(it,pushObj)
+                                    mlist.add(TaskData(it,pushObj))
+                                }else if(status==taskSnapShot.child("status").value.toString()){
+                                    TaskData(it,pushObj)
+                                    mlist.add(TaskData(it,pushObj))
+                                }else{
+
+                                }
                             } else {
 
                             }
