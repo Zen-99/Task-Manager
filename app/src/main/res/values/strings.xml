@@ -11,6 +11,7 @@
     <string name="imgUploadText">Upload Image</string>
     <string name="completeText">Complete</string>
     <string name="completedText">Completed</string>
+    <string name="statusText">Status</string>
     <string name="editText">Edit</string>
     <string name="deleteText">Delete</string>
 

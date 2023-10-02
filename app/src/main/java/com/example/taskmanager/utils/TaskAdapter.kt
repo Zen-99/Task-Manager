@@ -1,7 +1,9 @@
 package com.example.taskmanager.utils
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.taskmanager.R
 import com.example.taskmanager.databinding.EachTaskItemBinding
@@ -38,6 +40,26 @@ class TaskAdapter(private val type:String,private val list:MutableList<TaskData>
                     "Medium" -> binding.priortyVal.setBackgroundResource(R.drawable.medium_priority_background)
                     "Low" -> binding.priortyVal.setBackgroundResource(R.drawable.low_priority_background)
                     else -> binding.priortyVal.setBackgroundResource(R.drawable.default_priority_background)
+                }
+
+                when(this.taskObj.status) {
+                    "Pending" ->{
+                        binding.cardPaddingView1.visibility = View.GONE
+                        binding.completedText.visibility = View.GONE
+                        binding.completeBtn.visibility = View.VISIBLE
+                        binding.cardPaddingView2.visibility = View.VISIBLE
+//                        binding.cardView.strokeColor = ContextCompat.getColor(binding.root.context, R.color.border_default)
+//                        binding.cardView.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.card_default))
+                    }
+                    "Completed" -> {
+                        binding.cardPaddingView1.visibility = View.VISIBLE
+                        binding.completedText.visibility = View.VISIBLE
+                        binding.completeBtn.visibility = View.GONE
+                        binding.cardPaddingView2.visibility = View.GONE
+//                        binding.cardView.strokeColor = ContextCompat.getColor(binding.root.context, R.color.border_completed)
+//                        binding.cardView.setCardBackgroundColor(ContextCompat.getColor(binding.root.context, R.color.card_completed))
+                    }
+
                 }
 
                 binding.deleteBtn.setOnClickListener{

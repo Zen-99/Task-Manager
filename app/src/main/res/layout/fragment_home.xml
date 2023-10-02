@@ -51,10 +51,10 @@
                 android:layout_weight="1" />
 
             <ImageView
-                android:id="@+id/addBtn"
+                android:id="@+id/faqBtn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/plus"
+                android:src="@drawable/faq"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.671"
@@ -63,11 +63,16 @@
                 app:layout_constraintVertical_bias="0.026" />
 
             <ImageView
-                android:id="@+id/faqBtn"
+
+                android:id="@+id/logoutBtn"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@drawable/faq"
+                android:src="@drawable/logout"
                 android:layout_marginStart="16dp"/>
+
+
+
+
         </LinearLayout>
 
         <!-- Search Row -->
@@ -76,15 +81,29 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingHorizontal="15dp"
-            android:paddingVertical="10dp">
+            android:paddingVertical="10dp"
+            android:gravity="center_vertical">
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:hint="Search"
                 android:text="Search"
                 app:theme="@style/WhiteSearchViewStyle"/>
 
+            <ImageView
+                android:id="@+id/addBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/plus"
+                android:layout_marginLeft="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.671"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.026" />
         </LinearLayout>
 
     </LinearLayout>
@@ -116,6 +135,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/dmsans_bold"
+                android:textSize="12dp"
                 android:entries="@array/priorityItemsHome" />
         </LinearLayout>
 
@@ -150,7 +170,7 @@
             android:paddingVertical="10sp">
             <TextView
                 android:id="@+id/textView4"
-                android:text="@string/completedText"
+                android:text="@string/statusText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:theme="@style/InputLabel"/>
