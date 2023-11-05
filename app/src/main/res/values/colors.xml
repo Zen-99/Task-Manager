@@ -12,9 +12,17 @@
 
     <color name="sub_black">#FF222429</color>
     <color name="sub_gray">#FF666666</color>
+    <color name="sub_lightgray">#FFE0E0E0</color>
+    <color name="sub_green">#FF39C3A1</color>
     <color name="sub_white">#FFF9F9F9</color>
     <color name="light_blue">#FFEFFCFF</color>
     <color name="main_blue">#FF39C5F0</color>
+
+    <color name="border_default">#FFD8D8D8</color>
+    <color name="card_default">#FFFFFFFF</color>
+    <color name="border_completed">#8812B45C</color>
+    <color name="card_completed">#FFDCF8F1</color>
+
 
     <!--status-->
     <color name="status_red">#FFF55C33</color>
